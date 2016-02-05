@@ -4,27 +4,34 @@ var Slack = require('slack-client');
 
 slack = new Slack(process.env.SLACK_TOKEN, true, true);
 
+
+// Notes:
+// =====
+// openDM: (user_id, callback)
+//
+
 /**
  * When joining Slack...
  */
 slack.on('open', function() {
   console.log('Welcome to Slack. You are @' + slack.self.name + ' of ' + slack.team.name + '.');
+
+  // Send a test message to Dave :japanese_ogre:
+  var userId = 'D0LE0P0BH';
+  var channel = slack.getChannelGroupOrDMByID(userId);
+  channel.send('Hey nerd!');
 });
 
 /**
  * On receiving a message...
  */
 slack.on('message', function(message) {
-  var channel = slack.getChannelGroupOrDMByID(message.channel);
-  var user = slack.getUserByID(message.user);
-
-  var username = '???';
-  if(user && user.name) {
-    username = '@' + user.name;
+  // If it's not a DM, don't respond.
+  if (message.channel[0] !== 'D') {
+    return;
   }
 
-  console.log('[RECEIVED] ' + username + ': ' + message.text);
-
+  var channel = slack.getChannelGroupOrDMByID(message.channel);
   var response = message.text.split('').reverse().join('');
   channel.send(response)
 });
