@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -24,8 +24,17 @@ class User extends Authenticatable
 
     ];
 
+    /**
+     * Mutator to save the slack name with an '@' symbol.
+     */
     public function setSlackNameAttribute($value)
     {
       $this->attributes['slack_name'] = '@' . strtolower($value);
     }
+
+    public static function getUsers()
+    {
+      return self::first();
+    }
+
 }

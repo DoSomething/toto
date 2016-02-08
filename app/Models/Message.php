@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 
-class Message
+class Message extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -23,5 +24,10 @@ class Message
 
     ];
 
-
+    /**
+     *
+     */
+    public static function getMessage() {
+      return self::first();
+    }
 }

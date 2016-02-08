@@ -3,7 +3,8 @@
 namespace App\Console\Commands;
 
 use Slack;
-use DB;
+use App\Models\User;
+use App\Models\Message;
 use Illuminate\Console\Command;
 
 
@@ -30,10 +31,10 @@ class Toto extends Command
      */
     public function handle()
     {
-      // Get the user.
-      $user = DB::table('users')->first();
+      // Get every user.
+      $user = User::getUsers();
       // Get the message.
-      $message = DB::table('messages')->first();
+      $message = Message::getMessage();
       // Send the message to the user.
       Slack::to($user->slack_name)->send($message->message);
     }
