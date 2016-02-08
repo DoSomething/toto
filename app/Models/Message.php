@@ -11,7 +11,7 @@ class Message
      * @var array
      */
     protected $fillable = [
-        'day_to_send', 'message'
+        'title', 'day_to_send', 'message', 'time_to_send', 'tags'
     ];
 
     /**
