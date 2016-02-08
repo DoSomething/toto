@@ -35,6 +35,6 @@ class Toto extends Command
       // Get the message.
       $message = DB::table('messages')->first();
       // Send the message to the user.
-      Slack::from('Toto')->to($user->slack_name)->send($message->message);
+      Slack::to($user->slack_name)->send($message->message);
     }
 }
