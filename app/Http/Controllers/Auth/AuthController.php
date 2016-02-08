@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Toto\Http\Controllers\Auth;
 
-use App\User;
+use Toto\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Toto\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

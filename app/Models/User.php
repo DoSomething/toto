@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Toto\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Toto\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Message;
+use Toto\Http\Requests;
+use Toto\Http\Controllers\Controller;
+use Toto\Message;
 
 class MessageController extends Controller
 {

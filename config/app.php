@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Toto\Providers\AppServiceProvider::class,
+        Toto\Providers\AuthServiceProvider::class,
+        Toto\Providers\EventServiceProvider::class,
+        Toto\Providers\RouteServiceProvider::class,
 
         /*
          * Slack

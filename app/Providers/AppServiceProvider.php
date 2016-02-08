@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Toto\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

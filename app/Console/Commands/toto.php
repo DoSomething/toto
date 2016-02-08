@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Toto\Console\Commands;
 
 use Slack;
-use App\Models\User;
-use App\Models\Message;
+use Toto\Models\User;
+use Toto\Models\Message;
 use Illuminate\Console\Command;
 
 
