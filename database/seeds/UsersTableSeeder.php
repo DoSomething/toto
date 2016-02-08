@@ -16,5 +16,11 @@ class UsersTableSeeder extends Seeder
           'slack_name' => 'andrea',
           'start_date' => '2/1/2015'
         ]);
+
+        DB::table('users')->insert([
+          'name' => 'Shae',
+          'slack_name' => 'Smith',
+          'start_date' => '10/28/2014'
+        ]);
     }
 }
