@@ -22,18 +22,27 @@ class UserController extends Controller {
 		return view('users.create');
 	}
 
+
+	//this dude is throwing errors
 	public function store()
 	{
 		// $input = Input::all();
-		$input = Request::all();
-		$user = new User;
-		$user->start_date = $input['start_date'];
-		$user->name = $input['name'];
-		$user->slack_name = $input['slack_name'];
-		user()->save($user);
+		// $input = Request::all();
+		// $user = new User;
+		// $user->start_date = $input['start_date'];
+		// $user->name = $input['name'];
+		// $user->slack_name = $input['slack_name'];
+		// user()->save($user);
 
+		// UserController::create($input);
 
-		return $user;
+		// return $input;
+		var_dump("store user");
+	}
+
+	public function show()
+	{
+		var_dump("show user");
 	}
 }
 
