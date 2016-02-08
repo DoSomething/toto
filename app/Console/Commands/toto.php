@@ -30,8 +30,11 @@ class Toto extends Command
      */
     public function handle()
     {
+      // Get the user.
       $user = DB::table('users')->first();
+      // Get the message.
       $message = DB::table('messages')->first();
+      // Send the message to the user.
       Slack::from('Toto')->to($user->slack_name)->send($message->message);
     }
 }

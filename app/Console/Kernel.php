@@ -26,8 +26,5 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('toto')
                  ->everyMinute();
-        // $schedule->call(function() {
-        //   Slack::send('hey nerd');
-        // })->everyMinute();
     }
 }
