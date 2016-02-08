@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use Slack;
+use DB;
+use Illuminate\Console\Command;
+
 
 class Toto extends Command
 {
@@ -28,7 +30,8 @@ class Toto extends Command
      */
     public function handle()
     {
-      Slack::send('hiii');
-        // $this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+      $user = DB::table('users')->first();
+      $message = DB::table('messages')->first();
+      Slack::from('Toto')->to($user->slack_name)->send($message->message);
     }
 }
