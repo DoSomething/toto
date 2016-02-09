@@ -26,11 +26,7 @@ class UserController extends Controller
 	{
 		$input = Request::all();
 
-		$user = new User;
-		$user->start_date = $input['start_date'];
-		$user->name = $input['name'];
-		$user->slack_name = $input['slack_name'];
-		$user->save();
+		User::create($input);
 
 		return $input;
 	}
