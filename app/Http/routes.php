@@ -25,4 +25,5 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
 Route::get('users/create', ['as' => 'users.create', 'uses' => 'UserController@create']);
 Route::post('users/store', ['as' => 'users.store', 'uses' => 'UserController@store']);
+Route::get('users/show/{id}', ['as' => 'users.show', 'uses' => 'UserController@show']);
 

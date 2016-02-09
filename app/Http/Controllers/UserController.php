@@ -12,7 +12,6 @@ class UserController extends Controller
 	public function index()
 	{
 	    $users = DB::table('users')->get();
-
 		return view('users.index', compact('users'));
 	}
 
@@ -25,14 +24,14 @@ class UserController extends Controller
 	public function store()
 	{
 		$input = Request::all();
-
 		User::create($input);
-
 		return redirect('users');
 	}
 
 	public function show($id)
 	{
-		var_dump("show user");
+	    // Eventually need to deal with what to do if the user is not found
+	    $user = User::find($id);
+		return view('users.show', array('user' => $user));
 	}
 }
