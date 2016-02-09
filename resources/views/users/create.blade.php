@@ -8,8 +8,8 @@
 	</div>
 
 	<div>
-	{!! Form::label('slack_name', 'Slack Name: ') !!}
-	{!! Form::input('text', 'slack_name', null, ['placeholder' => '@whatever']) !!}
+	{!! Form::label('slack_name', 'Slack Name: @') !!}
+	{!! Form::input('text', 'slack_name', null, ['placeholder' => 'whatever']) !!}
 	</div>
 
 	<div>
