@@ -4,7 +4,6 @@ namespace Toto\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Toto\Http\Requests;
 use Toto\Http\Controllers\Controller;
 use Toto\Models\Message;
 
@@ -17,7 +16,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        var_dump("index");
+        $messages = Message::all();
+
+        return view('messages.index', array('messages' => $messages));
     }
 
     /**
@@ -47,7 +48,7 @@ class MessageController extends Controller
 
         Message::create($input);
 
-        Session::flash('flash_message', 'Task successfully added!');
+        $request->session()->flash('status', 'Message has been saved!');
 
         return redirect()->back();
     }
