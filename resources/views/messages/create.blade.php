@@ -1,7 +1,6 @@
 <h1>Create Message</h1>
 
-{{-- {!! Form::open(array('route' => 'message.store')) !!} --}}
-  {!! Form::open() !!}
+{!! Form::open(array('route' => 'message.store')) !!}
     <ul>
 
         <li>
@@ -18,12 +17,6 @@
         <li>
             {{ Form::label('day_to_send', 'Day to send:') }}
             {{ Form::text('day_to_send') }}
-        </li>
-
-        <?php // is there a better form element to use here ?>
-        <li>
-            {{ Form::label('time_to_send', 'Time to send:') }}
-            {{ Form::text('time_to_send') }}
         </li>
 
         <?php // add some help text ?>

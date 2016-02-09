@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Toto\Http\Requests;
 use Toto\Http\Controllers\Controller;
-use Toto\Message;
+use Toto\Models\Message;
 
 class MessageController extends Controller
 {
@@ -35,9 +35,13 @@ class MessageController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-       var_dump("store");
+       $input = $request->all();
+
+       Message::create($input);
+
+       return redirect()->back();
     }
 
     /**
