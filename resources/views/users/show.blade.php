@@ -8,5 +8,5 @@
 </div>
 
 <div>
-    <p>{!! link_to_route('users.index', '<- Return to all users') !!}</p>
+    <p>{!! link_to_route('users.index', '&larr; Return to all users') !!}</p>
 </div>
