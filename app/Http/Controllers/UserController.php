@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Toto\Http\Controllers;
 use DB;
 use Request;
-use App\Http\Controllers\Controller;
+use Toto\Http\Controllers\Controller;
+use Toto\Models\User;
 
-class UserController extends Controller {
+class UserController extends Controller 
+{
 
 	public function index()
 	{
 	    $users = DB::table('users')->get();
-	    // dd(compact('query'));
-        // $users = $query->paginate(25)->appends(Input::all());
-
 
 		return view('users.index', compact('users'));
 	}
@@ -23,21 +22,17 @@ class UserController extends Controller {
 	}
 
 
-	//this dude is throwing errors
 	public function store()
 	{
-		// $input = Input::all();
-		// $input = Request::all();
-		// $user = new User;
-		// $user->start_date = $input['start_date'];
-		// $user->name = $input['name'];
-		// $user->slack_name = $input['slack_name'];
-		// user()->save($user);
+		$input = Request::all();
 
-		// UserController::create($input);
+		$user = new User;
+		$user->start_date = $input['start_date'];
+		$user->name = $input['name'];
+		$user->slack_name = $input['slack_name'];
+		$user->save();
 
-		// return $input;
-		var_dump("store user");
+		return $input;
 	}
 
 	public function show()
@@ -45,5 +40,3 @@ class UserController extends Controller {
 		var_dump("show user");
 	}
 }
-
-// , ['user' => User::findorFail($id)]);
