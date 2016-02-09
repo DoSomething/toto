@@ -1,3 +1,11 @@
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
 <h1>Create Message</h1>
 
 {!! Form::open(array('route' => 'message.store')) !!}

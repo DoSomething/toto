@@ -37,11 +37,19 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-       $input = $request->all();
+        $this->validate($request, [
+            'title' => 'required',
+            'message' => 'required',
+            'day_to_send' => 'required|integer',
+        ]);
 
-       Message::create($input);
+        $input = $request->all();
 
-       return redirect()->back();
+        Message::create($input);
+
+        Session::flash('flash_message', 'Task successfully added!');
+
+        return redirect()->back();
     }
 
     /**
