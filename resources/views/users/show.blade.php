@@ -8,5 +8,5 @@
 </div>
 
 <div>
-    <p>{!! link_to_route('users.index', '&larr; Return to all users') !!}</p>
+    <a href="{{ route('users.index') }}">&larr; Return to all users</a>
 </div>

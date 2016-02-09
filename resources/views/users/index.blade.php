@@ -12,7 +12,7 @@
 	</tr>
   @foreach($users as $user)
     <tr>
-		<td>{!! link_to_route('users.show', $user->id, [$user->id]) !!}
+		<td><a href="{{ route('users.show', $user->id) }}">{{ $user->id }}</a></td>
 		<td>{{ $user->name }}</td>
 		<td> {{ $user->slack_name }} </td>
 		<td> {{ $user->start_date }} </td>

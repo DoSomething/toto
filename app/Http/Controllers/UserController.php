@@ -31,7 +31,7 @@ class UserController extends Controller
 	public function show($id)
 	{
 	    // Eventually need to deal with what to do if the user is not found
-	    $user = User::find($id);
+		$user = User::find($id);
 		return view('users.show', compact('user'));
 	}
 
