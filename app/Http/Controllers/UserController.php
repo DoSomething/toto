@@ -11,7 +11,7 @@ class UserController extends Controller
 
 	public function index()
 	{
-	    $users = DB::table('users')->get();
+	    $users = User::all();
 		return view('users.index', compact('users'));
 	}
 
@@ -32,6 +32,11 @@ class UserController extends Controller
 	{
 	    // Eventually need to deal with what to do if the user is not found
 	    $user = User::find($id);
-		return view('users.show', array('user' => $user));
+		return view('users.show', compact('user'));
+	}
+
+	public function edit()
+	{
+		var_dump("edit");
 	}
 }
