@@ -28,10 +28,10 @@ class UserController extends Controller
 
 		User::create($input);
 
-		return $input;
+		return redirect('users');
 	}
 
-	public function show()
+	public function show($id)
 	{
 		var_dump("show user");
 	}
