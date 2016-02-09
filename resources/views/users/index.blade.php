@@ -12,10 +12,10 @@
 	</tr>
   @foreach($users as $user)
     <tr>
-		<td>{{ $user->id }}</td>
-		<td>{{ $user->name }}</td>
-		<td> {{ $user->slack_name }} </td>
-		<td> {{ $user->start_date }} </td>
+		<td>{!! link_to_route('users.show', $user->id, [$user->id]) !!}
+		<td>{!! $user->name !!}</td>
+		<td> {!! $user->slack_name !!} </td>
+		<td> {!! $user->start_date !!} </td>
     </tr>
   @endforeach
 </table>

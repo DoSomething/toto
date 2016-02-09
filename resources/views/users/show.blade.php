@@ -6,3 +6,7 @@
     <p><strong>Slack Name:</strong>{{ $user->slack_name }}</p>
     <p><strong>Start Date:</strong>{{ $user->start_date }}</p>
 </div>
+
+<div>
+    <p>{!! link_to_route('users.index', '<- Return to all users') !!}</p>
+</div>
