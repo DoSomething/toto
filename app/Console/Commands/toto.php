@@ -32,19 +32,20 @@ class Toto extends Command
     public function handle()
     {
       // Get every user.
-      $user = User::getUsers();
+      $users = User::getUsers();
       // Get the message.
-      $message = Message::getMessage($user);
-      $client = new \GuzzleHttp\Client([
-        'base_uri' => 'http://localhost:3001',
-      ]);
-      // Send a request to the node server to post the message.
-      $client->request('POST', '/post', [
-          'json' => [
-            'user' => $user,
-            'message' => $message,
-          ]
-      ]);
-
+      foreach ($users as $user) {
+        $message = Message::getMessage($user);
+        $client = new \GuzzleHttp\Client([
+          'base_uri' => 'http://localhost:3001',
+        ]);
+        // Send a request to the node server to post the message.
+        $client->request('POST', '/post', [
+            'json' => [
+              'user' => $user,
+              'message' => $message,
+            ]
+        ]);
+      }
     }
 }
