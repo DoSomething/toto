@@ -14,3 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
 });
+
+// Move forge to public director
+elixir(function(mix) {
+    mix.copy('node_modules/@dosomething/forge/dist', 'public/vendor/forge');
+});

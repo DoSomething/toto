@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Edit Message - Message name')
+@section('title', 'All messages')
 
 @section('content')
 
