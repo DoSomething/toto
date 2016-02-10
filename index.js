@@ -1,5 +1,20 @@
 require('dotenv').config();
 
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json());
+app.get('/', function(req, res) {
+  // res.send('Hello Seattle\n');
+  // console.log(req);
+});
+app.post('/post', function(req, res) {
+   console.log(req.body);
+   // return;
+   // return 'success';
+});
+app.listen(3001);
+
 var Slack = require('slack-client');
 
 slack = new Slack(process.env.SLACK_TOKEN, true, true);
