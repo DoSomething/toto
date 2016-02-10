@@ -62,7 +62,8 @@ class MessageController extends Controller
     public function show($id)
     {
         $message = Message::find($id);
-        return view('messages.show', array('message' => $message));
+
+        return view('messages.show')->withMessage($message);
     }
 
     /**
@@ -73,7 +74,9 @@ class MessageController extends Controller
      */
     public function edit($id)
     {
-        var_dump("edit");
+        $message = Message::findOrFail($id);
+
+        return view('messages.edit')->withMessage($message);
     }
 
     /**
@@ -82,9 +85,23 @@ class MessageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        var_dump("update");
+        $message = Message::findOrFail($id);
+
+        $this->validate($request, [
+            'title' => 'required',
+            'message' => 'required',
+            'day_to_send' => 'required|integer',
+        ]);
+
+        $input = $request->all();
+
+        $message->fill($input)->save();
+
+        $request->session()->flash('status', 'Message has been saved!');
+
+        return redirect()->back();
     }
 
     /**
@@ -93,8 +110,14 @@ class MessageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        var_dump("destroy");
+        $message = Message::findOrFail($id);
+
+        $message->delete();
+
+        $request->session()->flash('status', 'Message has been deleted!');
+
+        return redirect()->route('message.index');
     }
 }
