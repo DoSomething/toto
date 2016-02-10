@@ -1,10 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Edit Message - Message name')
+@section('title', 'Message ' . $message->id)
 
 @section('content')
 
-<h1>Message {{ $message->id }}</h1>
 <ul>
   <li>Message Body: {{ $message->message }}</li>
   <li>Day to send: {{ $message->day_to_send }}</li>
@@ -12,12 +11,9 @@
   <li>Tags: {{ $message->tags }}</li>
 </ul>
 
-<div class="col-md-6 text-right">
-    {!! Form::open([
-        'method' => 'DELETE',
-        'route' => ['message.destroy', $message->id]
-    ]) !!}
-        {!! Form::submit('Delete this message?', ['class' => 'btn btn-danger']) !!}
+<div>
+    {!! Form::open(['method' => 'DELETE','route' => ['message.destroy', $message->id]]) !!}
+    {!! Form::submit('Delete') !!}
     {!! Form::close() !!}
 </div>
 

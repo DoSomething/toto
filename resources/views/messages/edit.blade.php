@@ -1,19 +1,15 @@
 @extends('layouts.master')
 
-@section('title', 'Edit Message - Message name')
+@section('title', 'Edit Message - ' . $message->title)
 
 @section('content')
 
-<p class="lead">Edit this message below. <a href="{{ route('message.index') }}">Go back to all tasks.</a></p>
+<p>Edit this message below. <a href="{{ route('message.index') }}">Go back to all tasks.</a></p>
+
 <hr>
 
-{!! Form::model($message, [
-    'method' => 'PATCH',
-    'route' => ['message.update', $message->id]
-]) !!}
-
+{!! Form::model($message, ['method' => 'PATCH','route' => ['message.update', $message->id]]) !!}
     <ul>
-
         <li>
             {{ Form::label('title', 'Title:') }}
             {{ Form::text('title') }}
@@ -24,13 +20,13 @@
             {{ Form::text('message') }}
         </li>
 
-        <?php // add some help text ?>
+        <?php //@TODO add some help text ?>
         <li>
             {{ Form::label('day_to_send', 'Day to send:') }}
             {{ Form::text('day_to_send') }}
         </li>
 
-        <?php // add some help text ?>
+        <?php //@TODO add some help text ?>
         <li>
             {{ Form::label('tags', 'Tags:') }}
             {{ Form::text('tags') }}

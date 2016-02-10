@@ -6,7 +6,6 @@
 
 {!! Form::open(array('route' => 'message.store')) !!}
     <ul>
-
         <li>
             {{ Form::label('title', 'Title:') }}
             {{ Form::text('title') }}
