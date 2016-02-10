@@ -1,8 +1,6 @@
 <?php
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+/*
+ * Message CRUD routes
+ */
 Route::resource('message', 'MessageController');
