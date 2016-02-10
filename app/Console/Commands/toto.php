@@ -40,7 +40,10 @@ class Toto extends Command
       ]);
       // Send a request to the node server to post the message.
       $client->request('POST', '/post', [
-          'json' => ['foo' => 'bar']
+          'json' => [
+            'user' => $user,
+            'message' => $message,
+          ]
       ]);
 
     }
