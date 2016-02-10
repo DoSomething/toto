@@ -35,8 +35,20 @@ class UserController extends Controller
 		return view('users.show', compact('user'));
 	}
 
-	public function edit()
+	public function edit($id)
 	{
-		var_dump("edit");
+		$user = User::find($id);
+		return view('users.edit', compact('user'));
+	}
+
+	public function update($id)
+	{
+		$user = User::find($id);
+		$input = Request::all();
+
+		$user->update($input);
+
+		return redirect('users');
+
 	}
 }

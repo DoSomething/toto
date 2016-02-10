@@ -1,4 +1,6 @@
-{!! Form::open(['route' => 'users.store']) !!}
+<p>U R now editin': {{ $user->name }}</p>
+
+{!! Form::model($user, ['method' => 'PATCH', 'route' => ['users.update', $user->id]]) !!}
 
 	<div>
 		{!! Form::label('name', 'Name: ') !!}
@@ -16,7 +18,7 @@
 	</div>
 
 	<div>
-		{!! Form::submit('Create User') !!}
+		{!! Form::submit('Update User') !!}
 	</div>
 
 {!! Form::close() !!}

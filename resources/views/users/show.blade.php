@@ -8,5 +8,11 @@
 </div>
 
 <div>
+    <a href="{{ route('users.edit', $user->id) }}">Edit user</a>
+</div>
+
+<br>
+
+<div>
     <a href="{{ route('users.index') }}">&larr; Return to all users</a>
 </div>

@@ -25,11 +25,11 @@ class User extends Model
     ];
 
     /**
-     * Mutator to save the slack name with an '@' symbol.
+     * Accessor to return the slack name with an '@' symbol.
      */
-    public function setSlackNameAttribute($value)
+    public function getSlackNameWithAt()
     {
-      $this->attributes['slack_name'] = '@' . strtolower($value);
+        return '@' . $this->attributes['slack_name'];
     }
 
     public static function getUsers()
