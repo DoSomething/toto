@@ -1,16 +1,9 @@
-@if (Session::has('status'))
-    <div class="alert alert-info">{{ Session::get('status') }}</div>
-@endif
+@extends('layouts.master')
 
-@if($errors->any())
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    </div>
-@endif
+@section('title', 'Edit Message - Message name')
 
-<h1>Edit Message - Message name</h1>
+@section('content')
+
 <p class="lead">Edit this message below. <a href="{{ route('message.index') }}">Go back to all tasks.</a></p>
 <hr>
 
@@ -51,3 +44,5 @@
 {!! Form::submit('Update Message', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
+
+@stop

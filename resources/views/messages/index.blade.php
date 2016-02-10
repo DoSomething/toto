@@ -1,6 +1,8 @@
-@if (Session::has('status'))
-    <div class="alert alert-info">{{ Session::get('status') }}</div>
-@endif
+@extends('layouts.master')
+
+@section('title', 'Edit Message - Message name')
+
+@section('content')
 
 @foreach($messages as $message)
     <h3>{{ $message->title }}</h3>
@@ -11,3 +13,5 @@
     </p>
     <hr>
 @endforeach
+
+@stop

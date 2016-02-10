@@ -1,16 +1,8 @@
-@if (Session::has('status'))
-    <div class="alert alert-info">{{ Session::get('status') }}</div>
-@endif
+@extends('layouts.master')
 
-@if($errors->any())
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    </div>
-@endif
+@section('title', 'Create Message')
 
-<h1>Create Message</h1>
+@section('content')
 
 {!! Form::open(array('route' => 'message.store')) !!}
     <ul>
@@ -43,9 +35,4 @@
     </ul>
 {!! Form::close() !!}
 
-<?php /*
-@if ($errors->any())
-    <ul>
-        {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-    </ul>
-@endif*/ ?>
+@stop

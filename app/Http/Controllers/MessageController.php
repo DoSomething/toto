@@ -3,12 +3,16 @@
 namespace Toto\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Toto\Http\Controllers\Controller;
 use Toto\Models\Message;
 
 class MessageController extends Controller
 {
+    private $validation_rules = [
+                                    'title' => 'required',
+                                    'message' => 'required',
+                                    'day_to_send' => 'required|integer',
+                                ];
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,7 @@ class MessageController extends Controller
     {
         $messages = Message::all();
 
-        return view('messages.index', array('messages' => $messages));
+        return view('messages.index')->withMessages($messages);
     }
 
     /**
@@ -38,11 +42,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'message' => 'required',
-            'day_to_send' => 'required|integer',
-        ]);
+        $this->validate($request, $this->validation_rules);
 
         $input = $request->all();
 
@@ -89,11 +89,7 @@ class MessageController extends Controller
     {
         $message = Message::findOrFail($id);
 
-        $this->validate($request, [
-            'title' => 'required',
-            'message' => 'required',
-            'day_to_send' => 'required|integer',
-        ]);
+        $this->validate($request, $this->validation_rules);
 
         $input = $request->all();
 
