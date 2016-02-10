@@ -6,7 +6,7 @@ use Slack;
 use Toto\Models\User;
 use Toto\Models\Message;
 use Illuminate\Console\Command;
-
+use \React\EventLoop\Factory;
 
 class Toto extends Command
 {
@@ -36,6 +36,6 @@ class Toto extends Command
       // Get the message.
       $message = Message::getMessage();
       // Send the message to the user.
-      Slack::to($user->slack_name)->send($message->message);
+      // Slack::to($user->slack_name)->send($message->message);
     }
 }
