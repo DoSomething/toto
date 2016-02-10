@@ -1,10 +1,14 @@
 @extends('layouts.master')
 
-@section('title', 'Create Message')
+@section('title', 'Edit Message - ' . $message->title)
 
 @section('content')
 
-{!! Form::open(array('route' => 'message.store')) !!}
+<p>Edit this message below. <a href="{{ route('message.index') }}">Go back to all tasks.</a></p>
+
+<hr>
+
+{!! Form::model($message, ['method' => 'PATCH','route' => ['message.update', $message->id]]) !!}
     <ul>
         <li>
             {{ Form::label('title', 'Title:') }}
@@ -16,13 +20,13 @@
             {{ Form::text('message') }}
         </li>
 
-        <?php // add some help text ?>
+        <?php //@TODO add some help text ?>
         <li>
             {{ Form::label('day_to_send', 'Day to send:') }}
             {{ Form::text('day_to_send') }}
         </li>
 
-        <?php // add some help text ?>
+        <?php //@TODO add some help text ?>
         <li>
             {{ Form::label('tags', 'Tags:') }}
             {{ Form::text('tags') }}
@@ -32,6 +36,9 @@
             {{ Form::submit('Submit', array('class' => 'btn')) }}
         </li>
     </ul>
+
+{!! Form::submit('Update Message', ['class' => 'btn btn-primary']) !!}
+
 {!! Form::close() !!}
 
 @stop

@@ -1,10 +1,23 @@
 {
+  "name": "toto",
+  "version": "1.0.0",
+  "description": "helper bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.8"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "bootstrap-sass": "^3.0.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
     "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "slack-client": "^1.5.1"
   }
 }

@@ -3,13 +3,16 @@
 namespace Toto\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Toto\Http\Requests;
 use Toto\Http\Controllers\Controller;
-use Toto\Message;
+use Toto\Models\Message;
 
 class MessageController extends Controller
 {
+    private $validation_rules = [
+                                    'title' => 'required',
+                                    'message' => 'required',
+                                    'day_to_send' => 'required|integer',
+                                ];
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +20,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        var_dump("index");
+        $messages = Message::all();
+
+        return view('messages.index')->withMessages($messages);
     }
 
     /**
@@ -35,9 +40,17 @@ class MessageController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-       var_dump("store");
+        $this->validate($request, $this->validation_rules);
+
+        $input = $request->all();
+
+        Message::create($input);
+
+        $request->session()->flash('status', 'Message has been saved!');
+
+        return redirect()->back();
     }
 
     /**
@@ -49,7 +62,8 @@ class MessageController extends Controller
     public function show($id)
     {
         $message = Message::find($id);
-        return view('messages.show', array('message' => $message));
+
+        return view('messages.show')->withMessage($message);
     }
 
     /**
@@ -60,7 +74,9 @@ class MessageController extends Controller
      */
     public function edit($id)
     {
-        var_dump("edit");
+        $message = Message::findOrFail($id);
+
+        return view('messages.edit')->withMessage($message);
     }
 
     /**
@@ -69,9 +85,19 @@ class MessageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        var_dump("update");
+        $message = Message::findOrFail($id);
+
+        $this->validate($request, $this->validation_rules);
+
+        $input = $request->all();
+
+        $message->fill($input)->save();
+
+        $request->session()->flash('status', 'Message has been saved!');
+
+        return redirect()->back();
     }
 
     /**
@@ -80,8 +106,14 @@ class MessageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        var_dump("destroy");
+        $message = Message::findOrFail($id);
+
+        $message->delete();
+
+        $request->session()->flash('status', 'Message has been deleted!');
+
+        return redirect()->route('message.index');
     }
 }
