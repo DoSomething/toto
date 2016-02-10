@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Toto::class,
+        Commands\Toto::class,
     ];
 
     /**
@@ -25,6 +25,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('toto')
-        //          ->everyMinute();
+                 // ->everyMinute();
     }
 }

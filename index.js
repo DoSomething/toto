@@ -1,8 +1,29 @@
 require('dotenv').config();
 
+var express = require('express');
+var bodyParser = require('body-parser');
 var Slack = require('slack-client');
 
-slack = new Slack(process.env.SLACK_TOKEN, true, true);
+
+var app = express();
+var slack = new Slack(process.env.SLACK_TOKEN, true, true);
+
+app.use(bodyParser.json());
+app.get('/', function(req, res) {
+  // res.send('Hello Seattle\n');
+  // console.log(req);
+});
+app.post('/post', function(req, res) {
+   // console.log(req.body);
+   var user = slack.getUserByName(req.body.user.slack_name);
+   slack.openDM(user.id, function(dm) {
+     var channel = slack.getChannelGroupOrDMByID(dm.channel.id);
+     channel.send(req.body.message.message);
+  });
+});
+app.listen(3001);
+
+
 
 
 // Notes:

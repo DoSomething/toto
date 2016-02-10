@@ -2,7 +2,7 @@
 
 namespace Toto\Console\Commands;
 
-use Slack;
+use GuzzleHttp;
 use Toto\Models\User;
 use Toto\Models\Message;
 use Illuminate\Console\Command;
@@ -34,8 +34,17 @@ class Toto extends Command
       // Get every user.
       $user = User::getUsers();
       // Get the message.
-      $message = Message::getMessage();
-      // Send the message to the user.
-      // Slack::to($user->slack_name)->send($message->message);
+      $message = Message::getMessage($user);
+      $client = new \GuzzleHttp\Client([
+        'base_uri' => 'http://localhost:3001',
+      ]);
+      // Send a request to the node server to post the message.
+      $client->request('POST', '/post', [
+          'json' => [
+            'user' => $user,
+            'message' => $message,
+          ]
+      ]);
+
     }
 }
