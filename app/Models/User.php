@@ -34,7 +34,8 @@ class User extends Model
 
     public static function getUsers()
     {
-      return self::first();
+        $today = new \DateTime();
+        return self::where('start_date', '>', $today->modify('-30 days'))->get();
     }
 
 }

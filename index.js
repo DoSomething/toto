@@ -13,6 +13,10 @@ app.get('/', function(req, res) {
   // res.send('Hello Seattle\n');
   // console.log(req);
 });
+
+/**
+ * Handle requests that come from the laravel app.
+ */
 app.post('/post', function(req, res) {
    // console.log(req.body);
    var user = slack.getUserByName(req.body.user.slack_name);
@@ -36,11 +40,6 @@ app.listen(3001);
  */
 slack.on('open', function() {
   console.log('Welcome to Slack. You are @' + slack.self.name + ' of ' + slack.team.name + '.');
-
-  // Send a test message to Dave :japanese_ogre:
-  // var userId = 'D0LE0P0BH';
-  // var channel = slack.getChannelGroupOrDMByID(userId);
-  // channel.send('Hey nerd!');
 });
 
 /**
@@ -54,7 +53,6 @@ slack.on('message', function(message) {
   // }
 
   var channel = slack.getChannelGroupOrDMByID(message.channel);
-  var response = message.text.split('').reverse().join('');
   channel.send('woof');
 });
 
