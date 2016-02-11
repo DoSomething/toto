@@ -27,7 +27,10 @@ class Message extends Model
     /**
      *
      */
-    public static function getMessage() {
-      return self::first();
+    public static function getMessage(User $user) {
+        $today = new \DateTime();
+        $start_date = new \DateTime($user->start_date);
+        $currentOnboardingDay = $today->diff($start_date);
+        return self::where('day_to_send', '=', $currentOnboardingDay->days)->first();
     }
 }
