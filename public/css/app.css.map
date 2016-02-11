@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB,EACnB;;AAED;EACE,kBAAkB,EACnB","file":"app.css","sourcesContent":["#message__title {\n  padding-left: 0px;\n}\n\n#message__edit {\n  text-align: right;\n}\n"],"sourceRoot":"/source/"}
