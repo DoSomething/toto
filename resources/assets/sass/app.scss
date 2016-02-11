@@ -1,16 +1,10 @@
-// Micro-clearfix mixin.
-// See: http://goo.gl/y82qLF
-@mixin clearfix {
-  &:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-}
-
 .container > .wrapper {
   .message__row {
-    @include clearfix;
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
 
     .message__edit {
       padding-bottom: 0px;
@@ -22,16 +16,18 @@
           float: right;
           margin-left: 24px;
         }
-
-        .delete {
-          background-color: #ff4747;
-        }
       }
     }
 
     .message__title {
       padding-left: 0px;
     }
+  }
+}
+
+.form-actions {
+  .delete {
+    background-color: #ff4747;
   }
 }
 
