@@ -48,7 +48,7 @@ class MessagesTableSeeder extends Seeder
         ]);
          DB::table('messages')->insert([
             'title' => 'Day 6',
-            'message' => 'Check out this fucking thing docs.dosomething.org',
+            'message' => 'Check out this thing docs.dosomething.org',
             'day_to_send' => '6',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
