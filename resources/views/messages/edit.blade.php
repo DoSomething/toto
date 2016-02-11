@@ -1,44 +1,42 @@
 @extends('layouts.master')
 
-@section('title', 'Edit Message - ' . $message->title)
+@section('title', 'Edit '. $message->title)
 
 @section('content')
+<div class='container__block'>
+    <div class='wrapper'>
+        <p>Edit this message below. <a href="{{ route('message.index') }}">Go back to all messages.</a></p>
+    </div>
+</div>
+<div class='container__block'>
+    <div class='wrapper'>
+        {!! Form::model($message, ['method' => 'PATCH','route' => ['message.update', $message->id]]) !!}
+            <div class="form-item">
+                {{ Form::label('title', 'Title:', array('class' => 'field-label')) }}
+                {{ Form::text('title', NULL, array('class' => 'text-field')) }}
+            </div>
 
-<p>Edit this message below. <a href="{{ route('message.index') }}">Go back to all tasks.</a></p>
+            <div class="form-item">
+                {{ Form::label('message', 'Message:', array('class' => 'field-label')) }}
+                {{ Form::text('message', NULL, array('class' => 'text-field')) }}
+            </div>
 
-<hr>
+            <?php //@TODO add some help text ?>
+            <div class="form-item">
+                {{ Form::label('day_to_send', 'Day to send:', array('class' => 'field-label')) }}
+                {{ Form::text('day_to_send', NULL, array('class' => 'text-field')) }}
+            </div>
 
-{!! Form::model($message, ['method' => 'PATCH','route' => ['message.update', $message->id]]) !!}
-    <ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
+            <?php //@TODO add some help text ?>
+            <div class="form-item">
+                {{ Form::label('tags', 'Tags:', array('class' => 'field-label')) }}
+                {{ Form::text('tags', NULL, array('class' => 'text-field')) }}
+            </div>
 
-        <li>
-            {{ Form::label('message', 'Message:') }}
-            {{ Form::text('message') }}
-        </li>
+        {!! Form::submit('Update Message', ['class' => 'button']) !!}
 
-        <?php //@TODO add some help text ?>
-        <li>
-            {{ Form::label('day_to_send', 'Day to send:') }}
-            {{ Form::text('day_to_send') }}
-        </li>
-
-        <?php //@TODO add some help text ?>
-        <li>
-            {{ Form::label('tags', 'Tags:') }}
-            {{ Form::text('tags') }}
-        </li>
-
-        <li>
-            {{ Form::submit('Submit', array('class' => 'btn')) }}
-        </li>
-    </ul>
-
-{!! Form::submit('Update Message', ['class' => 'btn btn-primary']) !!}
-
-{!! Form::close() !!}
+        {!! Form::close() !!}
+    </div>
+</div>
 
 @stop

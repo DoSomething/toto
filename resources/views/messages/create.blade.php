@@ -4,34 +4,36 @@
 
 @section('content')
 
-{!! Form::open(array('route' => 'message.store')) !!}
-    <ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
+<div class='container__block'>
+    <div class='wrapper'>
+        {!! Form::open(array('route' => 'message.store')) !!}
+            <div class="form-item">
+                {{ Form::label('title', 'Title:', array('class' => 'field-label')) }}
+                {{ Form::text('title', NULL, array('class' => 'text-field')) }}
+            </div>
 
-        <li>
-            {{ Form::label('message', 'Message:') }}
-            {{ Form::text('message') }}
-        </li>
+            <div class="form-item">
+                {{ Form::label('message', 'Message:', array('class' => 'field-label')) }}
+                {{ Form::text('message', NULL, array('class' => 'text-field')) }}
+            </div>
 
-        <?php // add some help text ?>
-        <li>
-            {{ Form::label('day_to_send', 'Day to send:') }}
-            {{ Form::text('day_to_send') }}
-        </li>
+            <?php // add some help text ?>
+            <div class="form-item">
+                {{ Form::label('day_to_send', 'Day to send:', array('class' => 'field-label')) }}
+                {{ Form::text('day_to_send', NULL, array('class' => 'text-field')) }}
+            </div>
 
-        <?php // add some help text ?>
-        <li>
-            {{ Form::label('tags', 'Tags:') }}
-            {{ Form::text('tags') }}
-        </li>
+            <?php // add some help text ?>
+            <div class="form-item">
+                {{ Form::label('tags', 'Tags:', array('class' => 'field-label')) }}
+                {{ Form::text('tags', NULL, array('class' => 'text-field')) }}
+            </div>
 
-        <li>
-            {{ Form::submit('Submit', array('class' => 'btn')) }}
-        </li>
-    </ul>
-{!! Form::close() !!}
+            <div class="form-item">
+                {{ Form::submit('Submit', array('class' => 'button')) }}
+            </div>
+        {!! Form::close() !!}
+    </div>
+</div>
 
 @stop
