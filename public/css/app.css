@@ -1,10 +1,19 @@
-#message__title {
+.container > .wrapper .message__row:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.container > .wrapper .message__row .message__edit {
+  padding-bottom: 0px; }
+  .container > .wrapper .message__row .message__edit .form-actions {
+    margin-top: 0px; }
+    .container > .wrapper .message__row .message__edit .form-actions.-inline li {
+      float: right;
+      margin-left: 24px; }
+    .container > .wrapper .message__row .message__edit .form-actions .delete {
+      background-color: #ff4747; }
+
+.container > .wrapper .message__row .message__title {
   padding-left: 0px; }
-
-#message__edit {
-  text-align: right; }
-
-.form-actions #delete {
-  background-color: #ff4747; }
 
 /*# sourceMappingURL=app.css.map */
