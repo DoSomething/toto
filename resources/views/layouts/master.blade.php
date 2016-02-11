@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dorthy</title>
+    <title>Dorthy</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <link rel="stylesheet" href="/vendor/forge/forge.css">
-  <script src="/vendor/forge/forge.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="/vendor/forge/forge.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/vendor/forge/forge.js"></script>
 </head>
 <body>
 <div class="chrome">
