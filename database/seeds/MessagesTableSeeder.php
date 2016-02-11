@@ -41,7 +41,7 @@ class MessagesTableSeeder extends Seeder
         ]);
         DB::table('messages')->insert([
             'title' => 'Day 5',
-            'message' => 'Look at this ya dummies, https://trello.com/b/McK68md1/onboarding-template',
+            'message' => 'Look at this, https://trello.com/b/McK68md1/onboarding-template',
             'day_to_send' => '5',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
