@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
   // res.send('Hello Seattle\n');
   // console.log(req);
+  // return;
 });
 
 /**
@@ -24,6 +25,7 @@ app.post('/post', function(req, res) {
      var channel = slack.getChannelGroupOrDMByID(dm.channel.id);
      channel.send(req.body.message.message);
   });
+   res.send('yeah');
 });
 app.listen(3001);
 
