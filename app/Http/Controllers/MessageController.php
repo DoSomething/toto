@@ -11,7 +11,8 @@ class MessageController extends Controller
     private $validation_rules = [
                                     'title' => 'required',
                                     'message' => 'required',
-                                    'day_to_send' => 'required|integer',
+                                    'day_to_send' => 'integer',
+                                    'type' => 'required'
                                 ];
     /**
      * Display a listing of the resource.

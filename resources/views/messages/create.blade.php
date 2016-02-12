@@ -14,7 +14,7 @@
 
             <div class="form-item">
                 {{ Form::label('message', 'Message:', array('class' => 'field-label')) }}
-                {{ Form::text('message', NULL, array('class' => 'text-field')) }}
+                {{ Form::textarea('message', NULL, array('class' => 'text-field')) }}
             </div>
 
             <?php // add some help text ?>
