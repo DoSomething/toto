@@ -2,7 +2,7 @@ require('dotenv').config();
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var http = require("http");
+var request = require('superagent');
 var Slack = require('slack-client');
 
 
@@ -56,13 +56,17 @@ slack.on('message', function(message) {
   }
   // console.log(message);
   if (message.text.indexOf("fetch") != -1) {
-    var whatToFetch = message.text.split(' ').pop();
-    console.log(whatToFetch);
+    var words = message.text.split(' ')
+    words.shift();
+    var whatToFetch = words.join('');
+    var channel = slack.getChannelGroupOrDMByID(message.channel);
 
-
+    request.get('http://toto.app:80/search/' + whatToFetch)
+      .end(function(err, res) {
+        if(err) return console.error(err);
+        channel.send(res.body.message);
+      });
   }
-  var channel = slack.getChannelGroupOrDMByID(message.channel);
-  channel.send('woof');
 });
 
 /**

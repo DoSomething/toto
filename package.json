@@ -20,6 +20,7 @@
     "express": "^4.13.4",
     "http": "0.0.0",
     "laravel-elixir": "^4.0.0",
-    "slack-client": "^1.5.1"
+    "slack-client": "^1.5.1",
+    "superagent": "^1.7.2"
   }
 }
