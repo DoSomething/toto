@@ -114,6 +114,6 @@ class MessageController extends Controller
 
         $request->session()->flash('status', 'Message has been deleted!');
 
-        return redirect()->route('message.index');
+        return redirect()->route('messages.index');
     }
 }

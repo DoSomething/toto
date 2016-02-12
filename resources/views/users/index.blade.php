@@ -1,21 +1,28 @@
-<!-- list all the users here, this should probably be under admin/users
-(and then displays only non-admins) -->
+@extends('layouts.master')
 
-<h1>Users</h1>
+@section('title', 'Users')
 
-<table>
-	<tr>
-		<th>User ID</th>
-		<th>Name</th>
-		<th>Slack Name</th>
-		<th>Start Date</th>
-	</tr>
-  @foreach($users as $user)
-    <tr>
-		<td><a href="{{ route('users.show', $user->id) }}">{{ $user->id }}</a></td>
-		<td>{{ $user->name }}</td>
-		<td> {{ $user->slack_name }} </td>
-		<td> {{ $user->start_date }} </td>
-    </tr>
-  @endforeach
-</table>
+@section('content')
+
+@foreach($users as $user)
+    <div class="message__row">
+        <div class="container__block -half message__title">
+            <p><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></p>
+        </div>
+        <div class="container__block -half message__edit">
+            <ul class="form-actions -inline">
+                <li>
+                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id]]) !!}
+                    {!! Form::submit('Delete', array('class' => 'button -secondary delete')) !!}
+                    {!! Form::close() !!}
+                </li>
+                <li>
+                    <a href="{{ route('users.edit', $user->id) }}" class="button -secondary">Edit User</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+@endforeach
+
+@stop
