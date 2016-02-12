@@ -54,19 +54,26 @@ slack.on('message', function(message) {
   if (message.channel[0] !== 'D') {
     return;
   }
-  // console.log(message);
+
+  var channel = slack.getChannelGroupOrDMByID(message.channel);
+
   if (message.text.indexOf("fetch") != -1) {
     var words = message.text.split(' ')
     words.shift();
     var whatToFetch = words.join('');
-    var channel = slack.getChannelGroupOrDMByID(message.channel);
 
+    // Search the app to see what it returns.
     request.get('http://toto.app:80/search/' + whatToFetch)
       .end(function(err, res) {
         if(err) return console.error(err);
         channel.send(res.body.message);
       });
   }
+
+  if (message.text.indexOf("help") != -1) {
+    channel.send('Not sure what you need? Ask toto to fetch to find things');
+  }
+
 });
 
 /**
