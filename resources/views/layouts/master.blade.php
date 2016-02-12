@@ -26,6 +26,11 @@
                             <strong class="navigation__title">Create a Message</strong>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ URL::to('users/create') }}">
+                            <strong class="navigation__title">Add User</strong>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
