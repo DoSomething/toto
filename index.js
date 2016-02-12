@@ -2,6 +2,7 @@ require('dotenv').config();
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var request = require('superagent');
 var Slack = require('slack-client');
 
 
@@ -50,12 +51,22 @@ slack.on('open', function() {
 slack.on('message', function(message) {
   // If it's not a DM, don't respond.
   // console.log(message.channel);
-  // if (message.channel[0] !== 'D') {
-  //   return;
-  // }
+  if (message.channel[0] !== 'D') {
+    return;
+  }
+  // console.log(message);
+  if (message.text.indexOf("fetch") != -1) {
+    var words = message.text.split(' ')
+    words.shift();
+    var whatToFetch = words.join('');
+    var channel = slack.getChannelGroupOrDMByID(message.channel);
 
-  var channel = slack.getChannelGroupOrDMByID(message.channel);
-  channel.send('woof');
+    request.get('http://toto.app:80/search/' + whatToFetch)
+      .end(function(err, res) {
+        if(err) return console.error(err);
+        channel.send(res.body.message);
+      });
+  }
 });
 
 /**
