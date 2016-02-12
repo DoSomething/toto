@@ -16,6 +16,7 @@ class SearchController extends Controller
      */
     public function search($term)
     {
+        // @TODO: this will literally fail if nothing matches, deal with that.
         $message = Message::where('tags', '=', $term)->first();
 
         return response()->json(['message' => $message->message]);
