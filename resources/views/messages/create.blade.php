@@ -30,6 +30,13 @@
             </div>
 
             <div class="form-item">
+                <div class="select">
+                    {{ Form::label('type', 'Type:', array('class' => 'field-label')) }}
+                    {{ Form::select('type', ['schedule', 'fetch']) }}
+                </div>
+            </div>
+
+            <div class="form-item">
                 {{ Form::submit('Submit', array('class' => 'button')) }}
             </div>
         {!! Form::close() !!}
