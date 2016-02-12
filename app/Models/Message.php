@@ -31,6 +31,6 @@ class Message extends Model
         $today = new \DateTime();
         $start_date = new \DateTime($user->start_date);
         $current_onboarding_day = $today->diff($start_date);
-        return self::where('day_to_send', '=', $current_onboarding_day->days)->first();
+        return self::where('day_to_send', '=', $current_onboarding_day->days)->where('type', '=', 'schedule')->first();
     }
 }
