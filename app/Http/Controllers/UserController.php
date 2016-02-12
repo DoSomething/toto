@@ -1,8 +1,8 @@
 <?php
 
 namespace Toto\Http\Controllers;
-use DB;
-use Request;
+
+use Illuminate\Http\Request;
 use Toto\Http\Controllers\Controller;
 use Toto\Models\User;
 
@@ -92,12 +92,12 @@ class UserController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        $message = Message::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        $message->delete();
+        $user->delete();
 
-        $request->session()->flash('status', 'Message has been deleted!');
+        $request->session()->flash('status', $user->name . ' has been deleted!');
 
-        return redirect()->route('messages.index');
+        return redirect()->route('users.index');
     }
 }
