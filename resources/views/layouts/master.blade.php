@@ -12,17 +12,17 @@
 <div class="chrome">
     <div class="wrapper">
         <nav class="navigation -white -floating">
-            <a class="navigation__logo" href="{{ URL::to('message') }}"><span>DoSomething.org</span></a>
+            <a class="navigation__logo" href="{{ URL::to('messages') }}"><span>DoSomething.org</span></a>
             <a class="navigation__toggle js-navigation-toggle" href="#"><span>Show Menu</span></a>
             <div class="navigation__menu">
                 <ul class="navigation__primary">
                     <li>
-                        <a href="{{ URL::to('message') }}">
+                        <a href="{{ URL::to('messages') }}">
                             <strong class="navigation__title">View All Messages</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ URL::to('message/create') }}">
+                        <a href="{{ URL::to('messages/create') }}">
                             <strong class="navigation__title">Create a Message</strong>
                         </a>
                     </li>

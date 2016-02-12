@@ -6,7 +6,7 @@
 
 <div class='container__block'>
     <div class='wrapper'>
-        {!! Form::open(array('route' => 'message.store')) !!}
+        {!! Form::open(array('route' => 'messages.store')) !!}
             <div class="form-item">
                 {{ Form::label('title', 'Title:', array('class' => 'field-label')) }}
                 {{ Form::text('title', NULL, array('class' => 'text-field')) }}

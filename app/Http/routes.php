@@ -3,7 +3,7 @@
 /*
  * Message CRUD routes
  */
-Route::resource('message', 'MessageController');
+Route::resource('messages', 'MessageController');
 Route::resource('users', 'UserController');
 
 /*

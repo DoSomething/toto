@@ -5,12 +5,12 @@
 @section('content')
 <div class='container__block'>
     <div class='wrapper'>
-        <p>Edit this message below. <a href="{{ route('message.index') }}">Go back to all messages.</a></p>
+        <p>Edit this message below. <a href="{{ route('messages.index') }}">Go back to all messages.</a></p>
     </div>
 </div>
 <div class='container__block'>
     <div class='wrapper'>
-        {!! Form::model($message, ['method' => 'PATCH','route' => ['message.update', $message->id]]) !!}
+        {!! Form::model($message, ['method' => 'PATCH','route' => ['messages.update', $message->id]]) !!}
             <div class="form-item">
                 {{ Form::label('title', 'Title:', array('class' => 'field-label')) }}
                 {{ Form::text('title', NULL, array('class' => 'text-field')) }}
