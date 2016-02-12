@@ -20,7 +20,7 @@
 
             <div class="form-item">
                 {!! Form::label('start_date', 'Start Date: ', array('class' => 'field-label')) !!}
-                {!! Form::text('start_date', NULL, ['class' => 'text-field', 'placeholder' => 'MM/DD/YYYY']) !!}
+                {!! Form::date('start_date', NULL, ['class' => 'text-field', 'placeholder' => 'MM/DD/YYYY']) !!}
             </div>
 
             <div class="form-item">
