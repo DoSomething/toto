@@ -15,6 +15,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 1',
             'message' => 'Hi, my name is Toto. I am here to help',
             'day_to_send' => '1',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -22,6 +23,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 2',
             'message' => 'Come to innovation meeting on wednesdays!',
             'day_to_send' => '2',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -29,6 +31,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 3',
             'message' => 'Today is thursday, we have staff meeting at 4:30!',
             'day_to_send' => '3',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -36,6 +39,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 4',
             'message' => 'Make sure to meet with @ritika about finance',
             'day_to_send' => '4',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -43,6 +47,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 5',
             'message' => 'Look at this, https://trello.com/b/McK68md1/onboarding-template',
             'day_to_send' => '5',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -50,6 +55,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 6',
             'message' => 'Check out this thing docs.dosomething.org',
             'day_to_send' => '6',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -57,6 +63,7 @@ class MessagesTableSeeder extends Seeder
             'title' => 'Day 7',
             'message' => 'Go out to coffee with your buddy! WOOF.',
             'day_to_send' => '7',
+            'type' => 'schedule',
             'time_to_send' => '12:00:00',
             'tags' => 'tag1, tag2, tag3',
         ]);
@@ -65,6 +72,7 @@ class MessagesTableSeeder extends Seeder
                 'title' => 'Day ' . $i,
                 'message' => 'hi',
                 'day_to_send' => $i,
+                'type' => 'schedule',
                 'time_to_send' => '12:00:00',
                 'tags' => 'tag1, tag2, tag3',
             ]);
