@@ -27,6 +27,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ URL::to('users') }}">
+                            <strong class="navigation__title">View Users</strong>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ URL::to('users/create') }}">
                             <strong class="navigation__title">Add User</strong>
                         </a>
