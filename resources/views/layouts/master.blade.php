@@ -49,8 +49,8 @@
             <div class="wrapper">
                 <div class="container__block">
                     <!-- will be used to show any messages -->
-                    @if (Session::has('message'))
-                        <div>{{ Session::get('message') }}</div>
+                    @if (Session::has('status'))
+                        <div>{{ Session::get('status') }}</div>
                     @endif
 
                     @if($errors->any())
