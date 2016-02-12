@@ -32,7 +32,7 @@
             <div class="form-item">
                 <div class="select">
                     {{ Form::label('type', 'Type:', array('class' => 'field-label')) }}
-                    {{ Form::select('type', ['schedule', 'fetch']) }}
+                    {{ Form::select('type', ['scheudle' => 'schedule', 'fetch' => 'fetch']) }}
                 </div>
             </div>
 
