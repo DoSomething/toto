@@ -35,10 +35,14 @@ class UserController extends Controller
      *
      * @return Response
      */
-	public function store()
+	public function store(Request $request)
 	{
-		$input = Request::all();
+		$input = $request->all();
+
 		User::create($input);
+
+        $request->session()->flash('status', $input['name'] . ' has been added!');
+
 		return redirect('users');
 	}
 
